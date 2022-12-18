@@ -1,3 +1,4 @@
+import { Plus } from "phosphor-react";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import EmptyData from "../empty-data";
 
@@ -26,7 +27,12 @@ function TablePrimary<T>({
           <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
         </div>
         <div className="mt-0 ml-16 flex-none">
-          <ButtonPrimary label="New member" onClick={onAddNew} />
+          <ButtonPrimary
+            icon={<Plus />}
+            label="New member"
+            onClick={onAddNew}
+            className="inline-flex"
+          />
         </div>
       </div>
       <div className="mt-8 flex flex-col">

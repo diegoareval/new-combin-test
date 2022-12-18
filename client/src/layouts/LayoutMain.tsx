@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import { List } from "phosphor-react";
+import { List, SignOut, UserCircle } from "phosphor-react";
 import LocalStorageAuth from "../helpers/localStorageAuth";
 import useLogin from "../hooks/useLogin";
 
@@ -52,6 +52,7 @@ const LayoutMain: FC<TestProps> = ({ children }) => {
                   <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none ring-2 ring-indigo-500 ring-offset-1">
+                        <UserCircle size={30} className="text-indigo-500" />
                         <div className="h-8 px-5 flex items-center justify-center uppercase font-medium">
                           {userAuth?.userName}
                         </div>
@@ -68,12 +69,11 @@ const LayoutMain: FC<TestProps> = ({ children }) => {
                     >
                       <Menu.Items className="absolute right-0 py-3 z-10 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
-                          <Link
-                            to="/login"
-                            className="p-3"
-                            onClick={handlerDestroySession}
-                          >
-                            Logout
+                          <Link to="/login" onClick={handlerDestroySession}>
+                            <div className="flex items-center py-1 mx-4 gap-2">
+                              <SignOut weight="bold" />
+                              Logout
+                            </div>
                           </Link>
                         </Menu.Item>
                       </Menu.Items>
